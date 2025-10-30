@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Vídeo Estilizado</title>
+
+    <style>
+        /* Estilização básica e centralização geral */
+        body {
+            /* Define a fonte padrão para o texto */
+            font-family: Arial, sans-serif;
+            /* Centraliza o texto e elementos inline */
+            text-align: center; 
+            margin: 0;
+            padding: 20px;
+            background-color: #000000; /* Fundo leve para destaque */
+        }
+
+        /* Estilização para o Título (H1) */
+        h1 {
+            /* Define uma fonte diferente para o título */
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 2.8em;
+            color: #0c2946;
+            margin-bottom: 25px;
+        }
+
+        /* Estilização e Centralização do Player de Vídeo */
+        video {
+            /* Permite centralizar o elemento de bloco com 'margin' */
+            display: block; 
+            /* Centraliza o vídeo horizontalmente */
+            margin: 20px auto; 
+            /* Adiciona um efeito visual */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            /* Garante que a borda não cause problemas de layout */
+            max-width: 90%; 
+            height: auto;
+        }
+
+        /* Estilização para o texto de parágrafo */
+        p {
+            font-size: 1.1em;
+            color: #ff0000;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Video Lutando</h1>
+
+    <video controls width="800" height="450">
+        
+        <source src="Armlock.mp4.MP4" type="video/mp4">
+        <source src="videos/meu-primeiro-video.webm" type="video/webm">
+        
+        <p>Guarde esse momento com você. Faça o download aqui<a href="Armlock.mp4.MP4" download>baixar o vídeo aqui</a>.</p>
+    </video>
+
+</body>
+</html><iframe width="560" height="315" src="https://www.youtube.com/embed/-R1AyN5Vhzw?si=VZlmMEoWigBMbyne" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
