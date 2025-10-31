@@ -3,63 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página com Vídeo Estilizado</title>
-
+    <title>Slideshow de Imagens do Canva</title>
+    
     <style>
-        /* Estilização básica e centralização geral */
         body {
-            /* Define a fonte padrão para o texto */
             font-family: Arial, sans-serif;
-            /* Centraliza o texto e elementos inline */
-            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            background-color: #000000; /* Fundo leve para destaque */
+            background-color: #f0f0f0;
         }
 
-        /* Estilização para o Título (H1) */
+        /* Contêiner principal do Slideshow */
+        .slideshow-container {
+            max-width: 800px; /* Largura máxima do seu slideshow */
+            position: relative;
+            margin: auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden; /* Importante para esconder as imagens que não estão ativas */
+        }
+
+        /* Estilo da imagem no slide */
+        .mySlides {
+            display: none; /* Por padrão, todas as imagens ficam escondidas */
+            width: 100%;
+            /* Garante que a imagem preencha o slide sem distorcer (cortando se necessário) */
+            object-fit: cover; 
+            transition: opacity 1s ease-in-out; /* Adiciona uma transição suave */
+        }
+
+        /* Estilo para mostrar apenas a imagem ativa */
+        .mySlides.active {
+            display: block; /* A imagem com a classe 'active' é exibida */
+        }
+        
         h1 {
-            /* Define uma fonte diferente para o título */
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 2.8em;
-            color: #0c2946;
-            margin-bottom: 25px;
-        }
-
-        /* Estilização e Centralização do Player de Vídeo */
-        video {
-            /* Permite centralizar o elemento de bloco com 'margin' */
-            display: block; 
-            /* Centraliza o vídeo horizontalmente */
-            margin: 20px auto; 
-            /* Adiciona um efeito visual */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            /* Garante que a borda não cause problemas de layout */
-            max-width: 90%; 
-            height: auto;
-        }
-
-        /* Estilização para o texto de parágrafo */
-        p {
-            font-size: 1.1em;
-            color: #ff0000;
+            color: #333;
+            margin-bottom: 20px;
         }
     </style>
-
 </head>
 <body>
 
-    <h1>Video Lutando</h1>
+    <h1>Apresentação de Slides do Canva</h1>
 
-    <video controls width="800" height="450">
+    <div class="slideshow-container">
         
-        <source src="Armlock.mp4.MP4" type="video/mp4">
-        <source src="videos/meu-primeiro-video.webm" type="video/webm">
+        <img class="mySlides active" src="1.png" alt="01">
         
-        <p>Guarde esse momento com você. Faça o download aqui<a href="Armlock.mp4.MP4" download>baixar o vídeo aqui</a>.</p>
-    </video>
+        <img class="mySlides" src="2.png" alt="02">
+        
+        <img class="mySlides" src="3.png" alt="03">
+        
+        <img class="mySlides" src="4.png" alt="04">
+
+         <img class="mySlides" src="5.png" alt="05">
+
+         <img class="mySlides" src="6.png" alt="06">
+
+         <img class="mySlides" src="7.png" alt="07">
+    </div>
+
+    <script>
+        let slideIndex = 0; // Começa no primeiro slide (índice 0)
+        showSlides(); // Chama a função para iniciar a apresentação
+
+        function showSlides() {
+            let i;
+            // Seleciona todos os elementos com a classe 'mySlides'
+            let slides = document.getElementsByClassName("mySlides");
+            
+            // 1. Remove a classe 'active' de todos os slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            // 2. Incrementa o índice. Se passar do último, volta para o primeiro (0)
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // 3. Adiciona a classe 'active' ao slide atual, exibindo-o
+            slides[slideIndex - 1].classList.add('active');
+            
+            // 4. Repete a função a cada 3000 milissegundos (3 segundos)
+            setTimeout(showSlides, 3000); 
+        }
+    </script>
 
 </body>
-</html><iframe width="560" height="315" src="https://www.youtube.com/embed/-R1AyN5Vhzw?si=VZlmMEoWigBMbyne" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</html>
