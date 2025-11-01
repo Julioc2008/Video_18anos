@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slideshow de Imagens</title>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,8 +15,6 @@
             margin: 0;
             background-color: #f0f0f0;
         }
-
-        /* Contêiner principal do Slideshow */
         .slideshow-container {
             max-width: 800px;
             position: relative;
@@ -26,8 +23,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             overflow: hidden; 
         }
-
-        /* Estilo da imagem no slide */
         .mySlides {
             display: none;
             width: 100%;
@@ -35,12 +30,9 @@
             object-fit: cover;
             transition: opacity 1s ease-in-out;
         }
-
-        /* Estilo para mostrar apenas a imagem ativa */
         .mySlides.active {
             display: block;
-        }
-        
+        }  
         h1 {
             color: #333;
             margin-bottom: 20px;
@@ -48,44 +40,30 @@
     </style>
 </head>
 <body>
-
     <h1>Apresentação de Slides</h1>
-
-    <div class="slideshow-container">
-        
+    <div class="slideshow-container"> 
         <img class="mySlides active" src="1.jpg" alt="Slide 1">
         <img class="mySlides" src="2.jpg" alt="Slide 2">
         <img class="mySlides" src="3.jpg" alt="Slide 3">
         <img class="mySlides" src="4.jpg" alt="Slide 4">
         <img class="mySlides" src="5.jpg" alt="Slide 5">
         <img class="mySlides" src="6.jpg" alt="Slide 6">
-        <img class="mySlides" src="7.jpg" alt="Slide 7">
-        
+        <img class="mySlides" src="7.jpg" alt="Slide 7">       
     </div>
-
     <script>
         let slideIndex = 0;
         showSlides(); 
-
         function showSlides() {
             let i;
             let slides = document.getElementsByClassName("mySlides");
-            
-            // Oculta todos os slides
             for (i = 0; i < slides.length; i++) {
                 slides[i].classList.remove('active');
             }
-            
-            // Avança para o próximo slide (ou volta ao início)
             slideIndex++;
             if (slideIndex > slides.length) {
                 slideIndex = 1;
             }
-            
-            // Exibe o slide atual
             slides[slideIndex - 1].classList.add('active');
-            
-            // Repete a função a cada 3 segundos (3000 milissegundos)
             setTimeout(showSlides, 3000); 
         }
     </script>
